@@ -420,7 +420,7 @@ private:
 	obd_cmd_states nb_query_state = SEND_COMMAND; // Non-blocking query state
 
 	void upper(char string[], uint8_t buflen);
-	void formatQueryArray(uint8_t service, uint16_t pid, uint8_t num_responses);
+	void formatQueryArray(uint8_t service, uint16_t pid, uint8_t num_responses = 0);
 	uint8_t ctoi(uint8_t value);
 	int8_t nextIndex(char const *str,
 	                 char const *target,

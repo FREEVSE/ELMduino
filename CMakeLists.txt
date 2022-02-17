@@ -1,2 +1,4 @@
 idf_component_register(SRCS "src/ELMduino.cpp"
-                       INCLUDE_DIRS "src")
+                       INCLUDE_DIRS "src"
+                       REQUIRES 
+                        arduino)

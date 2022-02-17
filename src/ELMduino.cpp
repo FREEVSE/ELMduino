@@ -190,8 +190,13 @@ void ELM327::formatQueryArray(uint8_t service, uint16_t pid, uint8_t num_respons
 		query[3] = ((pid >> 8) & 0xF) + '0';
 		query[4] = ((pid >> 4) & 0xF) + '0';
 		query[5] = (pid & 0xF) + '0';
-		query[6] = num_responses + '0';
-		query[7] = '\0';
+		if(num_responses){
+			query[6] = num_responses + '0';
+			query[7] = '\0';
+		}else{
+			query[6] = '\0';
+		}
+		
 
 		upper(query, 6);
 	}
@@ -204,8 +209,13 @@ void ELM327::formatQueryArray(uint8_t service, uint16_t pid, uint8_t num_respons
 
 		query[2] = ((pid >> 4) & 0xF) + '0';
 		query[3] = (pid & 0xF) + '0';
-		query[4] = num_responses + '0';
-		query[5] = '\0';
+
+		if(num_responses){
+			query[4] = num_responses + '0';
+			query[5] = '\0';
+		}else{
+			query[4] = '\0';
+		}
 
 		upper(query, 4);
 	}
